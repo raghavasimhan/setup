@@ -1,0 +1,40 @@
+<div style="width:100%" class="controls">
+
+<form  name="validatedForm" novalidate ng-submit="submitted = true">	
+	<table style="algin:center">
+    <tr colspan="2">
+    	<th >Student Information</th>
+    </tr>
+    <tr>
+    <td>Registration Number</td>
+    <td>
+    	<div class="form-group" ng-class="{ 'has-error' : submitted && validatedForm.id.$error.required}">
+    	<input type="text" ng-model="id" class="form-control"  name="id"  ng-required="{ required }" ng-class="{'error': validatedForm.id.$error.required}"  ng-minlength="3" ng-maxlength="8" ng-change="submitted = false" />
+    </div>
+    </td>
+   </tr>
+   <tr>
+    <td> Name</td>
+    <td>
+    	<input type="email" ng-model="name" />
+    </td>
+   </tr>
+   <tr>
+    <td>Contact Number</td>
+    <td>
+    	<input type="number" ng-model="number"  maxlength="10"/>
+    </td>
+   </tr>
+   <tr colspan="2">
+   	<td ><input type="submit" /> </td>
+   </tr>
+	</table>
+	<div>
+		{{validatedForm.id.$invalid}}
+		{{validatedForm.id}}
+		short : {{validatedForm.id.$error.minlength}}
+		large: {{validatedForm.id.$error.maxlength}}
+		submitted: {{submitted}}
+	</div>
+</form>
+</div>
